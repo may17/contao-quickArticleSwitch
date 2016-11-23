@@ -1,0 +1,13 @@
+#tl_buttons {
+  position: relative;
+}
+
+.articleswitch-wrapper {
+  position: absolute;
+  top:5px;
+  left: 20px;
+}
+
+.tl_select--articleswitch {
+  width: 300px;
+}
