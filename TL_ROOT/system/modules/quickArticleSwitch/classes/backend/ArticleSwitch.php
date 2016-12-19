@@ -14,7 +14,8 @@ class ArticleSwitch extends \Backend {
     }
 
     $template_data = array(
-      'articles' => array()
+      'articles' => array(),
+	  'choseLabel' => $GLOBALS['TL_LANG']['may17']['quickArticleSwitch']['choseText']
     );
 
     while($all_articleObj->next()) {
