@@ -6,7 +6,7 @@ class ArticleSwitch extends \Backend {
   public function addSwitch()
   {
     $article_id = \Input::get('id');
-    $page_id = \ArticleModel::findByPk(CURRENT_ID)->pid;
+    $page_id = \ArticleModel::findByPk($article_id)->pid;
     $all_articleObj =  \ArticleModel::findByPid($page_id);
 
     if($all_articleObj->count() <= 1) {
@@ -18,7 +18,7 @@ class ArticleSwitch extends \Backend {
     );
 
     while($all_articleObj->next()) {
-      if($all_articleObj->id !== CURRENT_ID) {
+      if($all_articleObj->id !== $article_id) {
         $template_data['articles'][] = array(
           'name' => $all_articleObj->title,
           'id' => $all_articleObj->id,
