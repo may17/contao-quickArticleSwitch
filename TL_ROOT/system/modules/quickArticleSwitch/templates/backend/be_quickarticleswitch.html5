@@ -1,15 +1,15 @@
 <?php $GLOBALS['TL_CSS'][] = "system/modules/quickArticleSwitch/assets/css/style.css" ?>
 <div class="articleswitch-wrapper">
-  <select id="quick-articleswitch" class="tl_select tl_select--articleswitch">
-    <option value=""><?php echo $this->choseLabel ?></option>
-    <?php foreach($this->articles as $article): ?>
-      <option value="<?php echo $article['id'] ?>"><?php echo $article['name'] ?></option>
-    <?php endforeach; ?>
-  </select>
+    <select id="quick-articleswitch" class="tl_select tl_select--articleswitch">
+        <option value=""><?php echo $this->choseLabel ?></option>
+        <?php foreach ($this->articles as $article): ?>
+            <option value="<?php echo $article['id'] ?>"<?php if ($article['isCurrent']): ?> disabled="disabled"<?php endif; ?>><?php echo $article['name'] ?></option>
+        <?php endforeach; ?>
+    </select>
 </div>
 
 <script>
-  $('quick-articleswitch').addEvent('change', function() {
-    location.href = 'contao/main.php?do=article&table=tl_content&id=' + this.get('value') + '&rt=' + Contao["request_token"] + '&ref=' + Contao["referer_id"];
-  })
+    $('quick-articleswitch').addEvent('change', function () {
+        location.href = 'contao/main.php?do=article&table=tl_content&id=' + this.get('value') + '&rt=' + Contao["request_token"] + '&ref=' + Contao["referer_id"];
+    })
 </script>
